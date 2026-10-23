@@ -1,0 +1,221 @@
+{
+ "rate": 48000,
+ "assets": [
+  {
+   "file": "soundscape_kerala_night.ogg",
+   "kind": "soundscape",
+   "loop": true,
+   "channels": 2,
+   "seconds": 60.0,
+   "meaning": "monsoon night in an empty Kerala classroom; the vent breathes"
+  },
+  {
+   "file": "cry_possession_rise.wav",
+   "kind": "cry",
+   "loop": false,
+   "channels": 1,
+   "seconds": 4.4,
+   "meaning": "fry into a trembling possession shriek"
+  },
+  {
+   "file": "cry_ululation.wav",
+   "kind": "cry",
+   "loop": false,
+   "channels": 1,
+   "seconds": 4.59,
+   "meaning": "wavering ritual wail"
+  },
+  {
+   "file": "cry_shriek_short.wav",
+   "kind": "cry",
+   "loop": false,
+   "channels": 1,
+   "seconds": 1.7,
+   "meaning": "sudden shriek"
+  },
+  {
+   "file": "cry_growl.wav",
+   "kind": "cry",
+   "loop": false,
+   "channels": 1,
+   "seconds": 3.2,
+   "meaning": "low guttural growl"
+  },
+  {
+   "file": "cry_sob_breaking.wav",
+   "kind": "cry",
+   "loop": false,
+   "channels": 1,
+   "seconds": 2.6,
+   "meaning": "sobbing that breaks into something else"
+  },
+  {
+   "file": "cry_ayyo_stretched.wav",
+   "kind": "cry",
+   "loop": false,
+   "channels": 1,
+   "seconds": 1.36,
+   "meaning": "'ayyo' (the Malayali cry of distress) stretched beyond breath"
+  },
+  {
+   "file": "priest_didnt_call_you.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 6.35,
+   "meaning": "I never called your name. So why did you answer?"
+  },
+  {
+   "file": "priest_didnt_call_you_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 3.9,
+   "meaning": "I never called your name. So why did you answer? (trembling, clean)"
+  },
+  {
+   "file": "priest_dont_turn.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 5.01,
+   "meaning": "Don't turn around. She is right behind you."
+  },
+  {
+   "file": "priest_dont_turn_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 2.98,
+   "meaning": "Don't turn around. She is right behind you. (trembling, clean)"
+  },
+  {
+   "file": "priest_built_on_grove.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 4.52,
+   "meaning": "This school was built on top of our grove."
+  },
+  {
+   "file": "priest_built_on_grove_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 2.83,
+   "meaning": "This school was built on top of our grove. (trembling, clean)"
+  },
+  {
+   "file": "priest_one_child.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 4.99,
+   "meaning": "Every year it needs one child. This year, you."
+  },
+  {
+   "file": "priest_one_child_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 3.06,
+   "meaning": "Every year it needs one child. This year, you. (trembling, clean)"
+  },
+  {
+   "file": "priest_lamp.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 4.25,
+   "meaning": "Don't put out the lamp. She walks in the dark."
+  },
+  {
+   "file": "priest_lamp_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 2.58,
+   "meaning": "Don't put out the lamp. She walks in the dark. (trembling, clean)"
+  },
+  {
+   "file": "priest_no_one_breathe.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 5.79,
+   "meaning": "Everyone sit down. Nobody stand up. Nobody breathe."
+  },
+  {
+   "file": "priest_no_one_breathe_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 3.57,
+   "meaning": "Everyone sit down. Nobody stand up. Nobody breathe. (trembling, clean)"
+  },
+  {
+   "file": "priest_ammu_still.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 4.17,
+   "meaning": "Ammu is still in class. For twenty years."
+  },
+  {
+   "file": "priest_ammu_still_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 2.49,
+   "meaning": "Ammu is still in class. For twenty years. (trembling, clean)"
+  },
+  {
+   "file": "priest_waiting.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 5.92,
+   "meaning": "It never left. It has been waiting for you."
+  },
+  {
+   "file": "priest_waiting_tremor_only.wav",
+   "kind": "priest",
+   "loop": false,
+   "channels": 1,
+   "seconds": 3.7,
+   "meaning": "It never left. It has been waiting for you. (trembling, clean)"
+  },
+  {
+   "file": "weird_bell_unstruck.wav",
+   "kind": "weird",
+   "loop": false,
+   "channels": 1,
+   "seconds": 9.0,
+   "meaning": "the school bell ringing with nobody striking it"
+  },
+  {
+   "file": "weird_chilanka_steps.wav",
+   "kind": "weird",
+   "loop": false,
+   "channels": 1,
+   "seconds": 6.0,
+   "meaning": "footsteps wearing anklet bells"
+  },
+  {
+   "file": "weird_ammu_reversed.wav",
+   "kind": "weird",
+   "loop": false,
+   "channels": 1,
+   "seconds": 1.25,
+   "meaning": "'Ammu, where is Ammu?' whispered backwards"
+  },
+  {
+   "file": "weird_haajar_whisper.wav",
+   "kind": "weird",
+   "loop": false,
+   "channels": 1,
+   "seconds": 0.4,
+   "meaning": "a child whispering 'haajar'"
+  }
+ ]
+}
