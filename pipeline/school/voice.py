@@ -327,3 +327,24 @@ def breath(seed="breath", inhale=1.6, exhale=2.1, depth=1.0, nasal=0.4, voiced=0
         parts.append(np.zeros(sec(r.uniform(0.05, 0.25))))
     y = np.concatenate(parts)
     return y / (np.max(np.abs(y)) + 1e-9) * 0.5
+
+
+def vocalise(vowel_audio, f0_curve, breath_mask=None, seed="vocalise", breathiness=0.15):
+    """Sing a single vowel along an arbitrary pitch contour (alapana, humming, a wordless lament).
+    f0_curve: Hz per 5 ms frame (0 = silence / breath). The vowel's stable middle frames are swept slowly back and
+    forth so the mouth never quite freezes."""
+    r = rng("vocalise", seed)
+    w = World(vowel_audio)
+    voiced = np.where(w.f0 > 0)[0]
+    a, b = (int(voiced[len(voiced) // 4]), int(voiced[3 * len(voiced) // 4])) if len(voiced) > 8 else (0, w.frames - 1)
+    n = len(f0_curve)
+    sweep = (np.sin(np.cumsum(np.full(n, 2 * np.pi * 0.35 * FRAME_MS / 1000)) + r.uniform(0, 6)) + 1) / 2
+    w.time_map(a + sweep * (b - a))
+    w.f0 = np.asarray(f0_curve, dtype=float)
+    w.ap = np.clip(w.ap + breathiness * (1 - w.ap), 0, 1)
+    y = w.synth()
+    if breath_mask is not None:
+        env = np.repeat(np.asarray(breath_mask, float), int(RATE * FRAME_MS / 1000))[:len(y)]
+        env = np.convolve(env, np.ones(960) / 960, mode="same")
+        y = y[:len(env)] * env
+    return fade(y / (np.max(np.abs(y)) + 1e-9) * 0.5, 0.05, 0.3)
