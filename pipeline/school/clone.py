@@ -59,10 +59,16 @@ def to_teacher(x, topk=4, match_pitch=True):
         if len(voiced) > 10:
             x = V.reshape(x, pitch=TARGET_F0 / float(np.median(voiced)))
     m = _model()
+    pad = int(0.6 * RATE)                       # kNN-VC's loudness gate needs > 0.4 s; pad short lines
+    x = np.pad(x, (pad, pad))
     x16 = signal.resample_poly(x, 1, 3).astype(np.float32)
     x16 = x16 / (np.max(np.abs(x16)) + 1e-9) * 0.9
     with torch.inference_mode():
         q = m.get_features(torch.from_numpy(x16)[None])
         y = m.match(q, _matching_set(), topk=topk)
     y = signal.resample_poly(y.cpu().numpy().astype(np.float64), 3, 1)
+    env = np.abs(y) > 0.02 * np.max(np.abs(y))
+    if env.any():
+        a, b = int(np.argmax(env)), len(y) - int(np.argmax(env[::-1]))
+        y = y[max(0, a - int(0.02 * RATE)):b + int(0.08 * RATE)]
     return y / (np.max(np.abs(y)) + 1e-9) * 0.5
