@@ -1,0 +1,7 @@
+.cache/
+__pycache__/
+*.pyc
+build/
+.godot/
+showcase/stems/
+showcase/*.flac
