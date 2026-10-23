@@ -44,9 +44,20 @@ def _matching_set():
     return ms
 
 
-def to_teacher(x, topk=4):
-    """x: mono float at RATE -> the same words in the target voice, at RATE."""
+TARGET_F0 = float(os.environ.get("SCHOOL_AUDIO_TEACHER_F0", "149"))   # median speaking pitch of the sample
+
+
+def to_teacher(x, topk=4, match_pitch=True):
+    """x: mono float at RATE -> the same words in the target voice, at RATE. kNN-VC keeps the source's
+    intonation, so the source pitch is first moved to the target's own speaking register."""
     import torch
+    if match_pitch:
+        import pyworld
+        from . import voice as V
+        f0, _ = pyworld.dio(x.astype(np.float64), RATE, frame_period=10)
+        voiced = f0[f0 > 0]
+        if len(voiced) > 10:
+            x = V.reshape(x, pitch=TARGET_F0 / float(np.median(voiced)))
     m = _model()
     x16 = signal.resample_poly(x, 1, 3).astype(np.float32)
     x16 = x16 / (np.max(np.abs(x16)) + 1e-9) * 0.9

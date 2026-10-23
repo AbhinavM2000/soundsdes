@@ -95,7 +95,7 @@ def ml_tts(text, speaker="Anjali", style="calm", seed=0, speed=1.0, engine=None)
 def sir(text, speed=0.95):
     """Sir: the line in the project owner's voice."""
     from . import clone
-    base = ml_tts(text, "Harish", "calm", 1, speed) if not text.isascii() else V.tts(text, "bm_george", speed)
+    base = ml_tts(text, "Harish", "calm", 1, speed * 0.88) if not text.isascii() else V.tts(text, "bm_george", speed)
     return clone.to_teacher(base)
 
 

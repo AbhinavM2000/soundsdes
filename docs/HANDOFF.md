@@ -66,3 +66,28 @@ legacy scripts: `docs/AUDIT.md`.
     python3 pipeline/distant_room.py --standin --seconds 30
     python3 pipeline/build.py library       # -> godot/audio/ + manifest.json
     python3 pipeline/build.py qc            # -> docs/QC_REPORT.md
+
+## Finish plan (shortest path, in order)
+
+Budget is nearly spent; this is the minimal sequence to a complete deliverable. Each step is one command or one
+small file, and each ends with a commit.
+
+1. **Tag the archives** (CPU only, unattended): `python3 build/analysis/tag.py` -> `build/analysis/tags.json`
+   (was ~1/6 done when work paused; drums/wood block found in CCRT-326, chant/clapping/crows in CCRT-327).
+2. **Smoke-test the Kerala modules once**: iron bell, fan wind-down, chilanka, monsoon, night, Malayalam count,
+   "Good morning, sir" unison, three Sir lines in the owner's voice (`school/kerala.py`, `school/cast_ml.py`).
+   The test snippet is in the conversation; any failure is a small bug fix, not a redesign.
+3. **Write `school/showcase_kerala.py`** by copying `school/showcase.py` and swapping cues per the table in
+   `docs/PLAN_KERALA.md` (rain -> `kerala.monsoon` + `kerala.night`; hum -> hum + `ceiling_fan` wind-down at 205 s;
+   pipe knocks -> window shutter `knock(.., "door")` outside the window; English cast -> `cast_ml`; hymn ->
+   `class_unison(PLEDGE..., one_voice=...)`; electric bell -> `iron_bell` / `iron_bell_unstruck`; copy steps +
+   `chilanka`; presence adds chenda from `kerala.find("Drum")` placed with `place_remote(..., "wall", ...)`;
+   final line `PA["thank_you"]`, `PA["everyone_here"]`, then three `iron_bell` strokes). Keep the `LEVEL` table.
+4. **Render + QC**: `python3 pipeline/build.py showcase` (point `render()` at the Kerala compose) then
+   `python3 pipeline/build.py qc`. Check the loudness timeline: no section louder than the bell; absence ~-55 LUFS.
+5. **Library + Godot**: `python3 pipeline/build.py library`; add a minimal `godot/project.godot` with
+   `SchoolAudio` autoload; open once in Godot 4.3 to import; done.
+6. Commit `showcase/*.mp3`, `docs/QC_REPORT.md`, `godot/audio/` (OGG/WAV, ~100 MB) and push.
+
+Already usable today: the engine, `showcase/distant_room_standin.mp3`, `pipeline/distant_room.py` (drop in the
+licensed song), the teacher voice clone, and the British draft in `showcase/drafts/`.
